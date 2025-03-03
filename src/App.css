@@ -110,7 +110,7 @@ nav {
 .secondary-button {
   padding: 1rem 2.5rem;
   background-color: #fe9e0d;
-  outline: none;
+  /* outline: none;
   border: none;
   border-radius: 5rem;
   font-size: 1.1rem;
@@ -120,7 +120,39 @@ nav {
   transition: 0.2s;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
+  color: white; /* 文字顏色為白色，與紐曼的對比風格相符 */
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 8px; /* 輕微弧度，保持現代感 */
+  cursor: pointer;
+  position: relative; /* 為拉鏈線條定位 */
+  overflow: hidden; /* 確保拉鏈線條不超出按鈕範圍 */
+  transition: background-color 0.3s; /* 添加輕微動畫效果 */
+}
+.secondary-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%; /* 居中拉鏈 */
+  width: 2px; /* 拉鏈寬度 */
+  height: 100%;
+  background-color: white; /* 拉鏈顏色 */
+  transform: translateX(-50%); /* 居中對齊 */
+  animation: zipPulse 2s infinite ease-in-out; /* 動態流動效果 */
+}
+/* 動態流動動畫 */
+@keyframes zipPulse {
+  0% {
+    height: 0%;
+  }
+  50% {
+    height: 100%;
+  }
+  100% {
+    height: 0%;
+  }
 }
 .secondary-button svg {
   margin-left: 0.75rem;
@@ -128,6 +160,11 @@ nav {
 }
 .secondary-button:hover {
   background-color: #e48f0f;
+  animation: none;
+}
+.secondary-button .FiArrowRight {
+  margin-left: 8px;
+  vertical-align: middle;
 }
 .about-section-container {
   margin-top: 20rem;
